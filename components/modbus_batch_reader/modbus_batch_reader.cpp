@@ -7,8 +7,12 @@ namespace modbus_batch_reader {
 
 static const char *const TAG = "modbus_batch_reader";
 
+ModbusBatchReader::ModbusBatchReader() : PollingComponent(500) {}
+
 void ModbusBatchReader::setup() {
-  this->set_address(1);
+  this->set_address(1);  // Default slave address, override in YAML
+  this->register_listener(this);  // attach on_modbus_data handler
+  this->set_modbus_parent(this->parent_);  // link modbus controller
 }
 
 void ModbusBatchReader::update() {
@@ -34,6 +38,13 @@ void ModbusBatchReader::on_modbus_data(const std::vector<uint8_t> &data) {
 
 void ModbusBatchReader::dump_config() {
   ESP_LOGCONFIG(TAG, "Modbus Batch Reader");
+  LOG_SENSOR("  ", "L1 CH1", this->current_l1_ch1);
+  LOG_SENSOR("  ", "L1 CH2", this->current_l1_ch2);
+  LOG_SENSOR("  ", "L1 CH3", this->current_l1_ch3);
+  LOG_SENSOR("  ", "L1 CH4", this->current_l1_ch4);
+  LOG_SENSOR("  ", "L1 CH5", this->current_l1_ch5);
+  LOG_SENSOR("  ", "L1 CH6", this->current_l1_ch6);
+  LOG_SENSOR("  ", "L1 Total", this->current_l1_total);
 }
 
 }  // namespace modbus_batch_reader
