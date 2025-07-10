@@ -1,0 +1,31 @@
+
+modbus_batch_reader:
+  - id: reader
+    current_l1_ch1:
+      name: "L1電流 CH1"
+      unit_of_measurement: "A"
+      accuracy_decimals: 2
+    current_l1_ch2:
+      name: "L1電流 CH2"
+      unit_of_measurement: "A"
+      accuracy_decimals: 2
+    current_l1_ch3:
+      name: "L1電流 CH3"
+      unit_of_measurement: "A"
+      accuracy_decimals: 2
+    current_l1_ch4:
+      name: "L1電流 CH4"
+      unit_of_measurement: "A"
+      accuracy_decimals: 2
+    current_l1_ch5:
+      name: "L1電流 CH5"
+      unit_of_measurement: "A"
+      accuracy_decimals: 2
+    current_l1_ch6:
+      name: "L1電流 CH6"
+      unit_of_measurement: "A"
+      accuracy_decimals: 2
+    current_l1_total:
+      name: "L1電流總和"
+      unit_of_measurement: "A"
+      accuracy_decimals: 2
